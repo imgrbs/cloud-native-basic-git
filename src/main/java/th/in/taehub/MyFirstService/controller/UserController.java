@@ -11,10 +11,17 @@ public class UserController {
     @GetMapping("/users/1")
     public ArrayList getUser() {
         ArrayList<User> users = new ArrayList();
+        users.add(new User(1, "Keerati"));
+        return users;
+    }
+
+
+    @GetMapping("/users")
+    public ArrayList getUsers() {
+        ArrayList<User> users = new ArrayList();
         for (int i = 0; i < 5; i++) {
             users.add(new User(1, "Keerati"));
         }
         return users;
     }
-
 }
