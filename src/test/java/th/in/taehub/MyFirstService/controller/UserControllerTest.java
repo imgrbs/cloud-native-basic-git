@@ -31,7 +31,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void getUsersShouldReturnIdOneInAllArrayData() {
+    public void getUsersShouldReturnIdAndNameCorrectlyInAllArrayData() {
         ArrayList<User> controllerUsers = userController.getUsers();
         Assert.assertEquals(users.get(0).getId(), controllerUsers.get(0).getId());
         Assert.assertEquals(users.get(0).getName(), controllerUsers.get(0).getName());
@@ -54,7 +54,7 @@ public class UserControllerTest {
 
 
     @Test
-    public void getUserShouldReturnIdOne() {
+    public void getUserShouldReturnIdAndNameCorrectly() {
         ArrayList<User> controllerUsers = userController.getUser();
         Assert.assertEquals(user.get(0).getId(), controllerUsers.get(0).getId());
         Assert.assertEquals(user.get(0).getName(), controllerUsers.get(0).getName());
