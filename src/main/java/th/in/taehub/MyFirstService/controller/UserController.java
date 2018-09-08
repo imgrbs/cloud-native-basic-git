@@ -1,8 +1,6 @@
 package th.in.taehub.MyFirstService.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -13,18 +11,17 @@ public class UserController {
 
     public UserController() {
         this.users = new ArrayList<User>();
-        for(int i = 0; i < 5; i++) {
-            int id = i + 1;
-            this.users.add(new User(id, "Keerati_" + id));
-        }
+        this.users.add(new User(1, "Keerati"));
+        this.users.add(new User(2, "Putchamon"));
+        this.users.add(new User(3, "Nathawat"));
+        this.users.add(new User(4, "Kunchai"));
+        this.users.add(new User(5, "Kanisorn"));
     }
 
-    @GetMapping("/users/{id}")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable int id) {
         return this.users.get(id);
     }
-
-
 
     @GetMapping("/users")
     public ArrayList<User> getUsers() {
