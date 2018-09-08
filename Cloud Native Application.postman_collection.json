@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "93e2790d-cfe6-42d0-8f99-85aa9a2978bb",
+		"name": "Cloud Native Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET all users at /users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58096909-1f3f-4899-80e5-be7cf583067b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Get all users should have 5 users\", function () {",
+							"    // arrange",
+							"    var jsonData = pm.response.json();",
+							"    // action",
+							"    var dataLength = jsonData.length;",
+							"    // assert",
+							"    pm.expect(dataLength).to.eql(5);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET one user at /user/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3f79e4f1-cd2b-4539-a344-d6ff94c00478",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Get one user in User Service should get username equal Putchamon\", function () {",
+							"    // arrange",
+							"    var jsonData = pm.response.json();",
+							"    // action",
+							"    var username = jsonData.name;",
+							"    // assert",
+							"    pm.expect(username).to.eql(\"Putchamon\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
