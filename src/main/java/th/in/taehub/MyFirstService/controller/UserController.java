@@ -18,8 +18,11 @@ public class UserController {
         this.users.add(new User(5, "Kanisorn"));
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public User getUser(@PathVariable int id) {
+    @RequestMapping(
+        value = "/user/{id:[\\d]}",
+        method = RequestMethod.GET
+    )
+    public User getUser(@PathVariable("id") int id) {
         return this.users.get(id);
     }
 
